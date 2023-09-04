@@ -1,0 +1,194 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+    margin: 0; 
+}
+
+/* make images easier to work with */
+img,
+picutre {
+    max-width: 100%;
+    display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:root{
+    --mainText: hsl(238, 29%, 16);
+    --softViolet: hsl(273, 75%, 66%);
+    --softBlue: hsl(240, 73%, 65%);
+    --divider: hsl(240, 5%, 91%)
+}
+
+#wrapper{
+    height:100vh;
+    width:100vw;
+    display: flex;
+    background-image: linear-gradient(var(--softViolet),var(--softBlue));
+    align-items: center;
+    justify-content: center;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.arrow{
+    rotate:-90deg
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:60%;
+    background-color: white;
+    padding: 1rem 1rem 1rem 0;
+    border-radius: 20px;
+}
+
+.ans{
+    display: none; 
+}
+.para{
+    opacity: 0;
+    transition-duration: 1s;
+    transition-delay: 1s;
+}
+
+.faqContainer,.faq{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap:2rem;
+    width:60%;
+}
+
+.box{
+    width:10%;
+    z-index: 1;
+    transform: translate( -1em , 2em);
+}
+.faqContainer>h1{
+    text-align: left;
+}
+.faq{
+    width: 100%;
+}
+
+.illustration{
+    width:40%;
+    transform: translateX(-7em);
+}
+
+.ques{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    gap:1rem
+}
+
+.ques{
+    cursor: pointer;
+}
+
+.f1,.f2,.f3,.f4,.f5{
+    width:100% ;
+    display: flex;
+    flex-direction: column;
+    gap:0.5rem
+}
+
+.active{
+    display:block;
+}
+
+.activeArrow{
+    rotate: 180deg;
+}
+
+.divider{
+    width:100%;
+    height:2px;
+    background-color: var(--divider);
+}
+.ques>h3{
+    font-weight: 400;
+}
+.activeQues{
+    color:var(--mainText);
+    opacity: 1 ;
+    font-weight: bold;
+}
+@media screen and (1700px<width<2560px){
+    .illustration{
+        width:40%;
+        transform: translateX(-14rem);
+    }
+    .box{
+        transform: translate( -4.5rem , 3rem);
+    }
+    .faqContainer{
+        width: 100%;
+    }
+}
+@media screen and ( max-width:1050px) {
+    .container{
+        flex-direction: column;
+        width:90%;
+        padding-bottom: 3rem;
+        position: relative;
+        padding-top: 5rem;
+    }
+    .illustration{
+        /* Impornt.....if width is in rem , object will not change place according to device size*/
+        transform: translate(0);
+        position: absolute;
+        top:-5.5rem;
+        width:12rem
+    }
+    .box{
+        position: absolute;
+        width:4rem;
+        transform: translate(-4rem,0);
+        top:-2rem;
+        /* left: 18.5rem; */
+        
+    }
+    .faq,.faqContainer{
+        width: 90%;
+        padding: 0.5rem;
+        justify-content: centers;
+        align-items: center;
+    }
+}
